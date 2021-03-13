@@ -22,7 +22,7 @@ jobs:
       run: |
         pip install sltx
         echo "tx-default" | sltx docker
-        sudo apt install xlsx2csv
+        sudo apt install xlsx2csv poppler-utils
     - name: Compile the Documents
       run: |
         make EXTRA_ARGS='--root'
