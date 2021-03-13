@@ -21,6 +21,7 @@ jobs:
     - name: Setup and run sltx-install + xlsx2csv
       run: |
         pip install sltx
+        sed -i 's/none/read\|write/g' /etc/ImageMagick-6/policy.xml
         echo "tx-default" | sltx docker
         sudo apt install xlsx2csv poppler-utils
     - name: Compile the Documents
