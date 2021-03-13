@@ -1,5 +1,7 @@
 XLS_FILE := $(shell ls *.xlsx)
 
+EXTRA_ARGS := ''
+
 .PHONY: assemble convert compile
 
 assemble: compile
