@@ -25,7 +25,7 @@ jobs:
         sudo apt install xlsx2csv
     - name: Compile the Documents
       run: |
-        sltx compile --root --profile "tx-default" "card-builder.tex"
+        make
     - name: Commit
       run: |
         git config --local user.email "action@github.com"
