@@ -8,7 +8,7 @@ assemble: compile
 	bash create-sheets.sh
 
 compile: convert
-	sltx -q compile card-builder
+	sltx -q compile ${EXTRA_ARGS} card-builder
 
 convert:
 	xlsx2csv $(XLS_FILE) > cards.src
