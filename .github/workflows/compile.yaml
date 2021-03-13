@@ -22,7 +22,7 @@ jobs:
       run: |
         pip install sltx
         echo "tx-default" | sltx docker
-        apt install xlsx2csv
+        sudo apt install xlsx2csv
     - name: Compile the Documents
       run: |
         sltx compile --root --profile "tx-default" "card-builder.tex"
