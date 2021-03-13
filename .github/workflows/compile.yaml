@@ -23,7 +23,7 @@ jobs:
         pip install sltx
         sudo sed -i 's/none/read\|write/g' /etc/ImageMagick-6/policy.xml
         echo "tx-default" | sltx docker
-        sudo apt install xlsx2csv poppler-utils
+        sudo apt install xlsx2csv poppler-utils imagemagick-6-common
     - name: Compile the Documents
       run: |
         make EXTRA_ARGS='--root'
