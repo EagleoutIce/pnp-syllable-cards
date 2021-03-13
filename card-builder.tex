@@ -1,0 +1,84 @@
+\errorcontextlines 999999
+\documentclass[ngerman]{article}
+\usepackage{color-palettes,nameref}
+\usepackage[sopra-tables={cpalette},lecture-base,lithie-boxes={germanenv,autostyle},lecture-links={defaults,patchurl},lecture-bibliography={style=numeric,biber,backref},lecture-glossary={short}]{lithie-util}
+\usepackage{babel,csquotes}
+\usepackage[active,tightpage]{preview}
+
+\usepackage[prefix=]{xcolor-solarized}
+
+\PreviewBorder=0pt
+
+\let\say\enquote
+
+\makeatletter
+\newread\pnp@cd@file
+\newcounter{pnp@cd@file@linec}
+
+\def\ParseFile#1{%
+    % init:
+    \def\pnp@cd@cl{}%
+    \immediate\openin\pnp@cd@file=#1\relax
+    \ifeof\pnp@cd@file\else% exists
+    \typeout{Parsing #1}
+\loop
+    \read\pnp@cd@file to \pnp@cd@cl \relax
+    \unless\ifeof\pnp@cd@file
+    \stepcounter{pnp@cd@file@linec}%
+    % \thepnp@cd@file@linec:
+    \typeout{In Line: \thepnp@cd@file@linec (\pnp@cd@cl)}%
+    \expandafter\pnp@cd@parse@line\pnp@cd@cl
+\repeat
+    \fi
+    \immediate\closein\pnp@cd@file% always close afterwards :D
+}
+
+\newcounter{cardcounter}
+
+\def\pnp@cd@parse@line#1,#2,#3,#4,#5;{%
+    \expandafter\gdef\csname e@\arabic{cardcounter}@tag\endcsname{#1}%
+    \expandafter\gdef\csname e@\arabic{cardcounter}@translation\endcsname{#2}%
+    \expandafter\gdef\csname e@\arabic{cardcounter}@spec\endcsname{#3}%
+    \expandafter\gdef\csname e@\arabic{cardcounter}@level\endcsname{#4}%
+    \expandafter\gdef\csname e@\arabic{cardcounter}@type\endcsname{#5}%
+    \stepcounter{cardcounter}%
+}
+
+\def\get#1{\@nameuse{e@\cardi @#1}}
+\def\getCol{col@\@nameuse{e@\cardi @type}}
+
+\colorlet{col@Nutz}{gray}
+\colorlet{col@Beschaffenheit}{green}
+\colorlet{col@Aktion}{red}
+\colorlet{col@Spezial}{yellow}
+
+
+
+\def\CardWidth{4cm}
+\def\CardHeight{5cm}
+\def\CardPad{.15cm}
+\def\CardEffectiveWidth{\CardWidth-2*\CardPad}
+
+% Typeset Card number #1
+\def\TypesetCard#1{%
+\def\cardi{#1}\begin{preview}
+\begin{tikzpicture}
+\fill[\getCol] (0,0) node[below right=\CardPad,text width=\CardEffectiveWidth,inner sep=0pt,text=white]%
+    (name-tag) {\Large\textbf{#1}\strut\hfill\get{tag}} rectangle ++(\CardWidth,-\CardHeight)
+    node[above left=\CardPad, text width=\CardEffectiveWidth,inner sep=0pt,align=left,text=white] (level-tag) {\scriptsize\get{type}\hfill Level: \get{level}};
+\node[below=\CardPad,text=white,text width=\CardEffectiveWidth,inner sep=0pt,align=center] at(name-tag.south) {\get{translation}};
+\node[above=2*\CardPad,text=white,text width=\CardEffectiveWidth,inner sep=0pt,align=center] at(level-tag.north) {\get{spec}};
+\end{tikzpicture}%
+% [#1] \get{tag}|\get{translation}|\get{spec}|\get{level}|\get{type}
+\end{preview}%
+}
+
+\renewcommand\familydefault{\sfdefault}
+
+
+\ParseFile{cards.src}
+\begin{document}
+\foreach \i in {1,...,\numexpr\value{cardcounter}-1\relax}{
+    \TypesetCard{\i}
+}
+\end{document}
