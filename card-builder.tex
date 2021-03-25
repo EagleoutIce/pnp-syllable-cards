@@ -1,11 +1,16 @@
 \errorcontextlines 999999
 \documentclass[ngerman]{article}
+
 \usepackage{color-palettes,nameref}
 \usepackage[sopra-tables={cpalette},lecture-base,lithie-boxes={germanenv,autostyle},lecture-links={defaults,patchurl},lecture-bibliography={style=numeric,biber,backref},lecture-glossary={short}]{lithie-util}
 \usepackage{babel,csquotes}
 \usepackage[active,tightpage]{preview}
 
 \usepackage[prefix=]{xcolor-solarized}
+\usepackage{aurical,LobsterTwo}
+\usetikzlibrary{backgrounds}
+
+\hyphenpenalty=600
 
 \PreviewBorder=0pt
 
@@ -47,27 +52,46 @@
 \def\get#1{\@nameuse{e@\cardi @#1}}
 \def\getCol{col@\@nameuse{e@\cardi @type}}
 
-\colorlet{col@Nutz}{gray}
-\colorlet{col@Beschaffenheit}{green}
-\colorlet{col@Aktion}{red}
-\colorlet{col@Spezial}{yellow}
+\definecolor{col@Nutz}{RGB}{21, 12, 32}
+\definecolor{col@Beschaffenheit}{RGB}{13, 24, 3}
+\definecolor{col@Aktion}{RGB}{25, 7, 3}
+\definecolor{col@Spezial}{RGB}{23, 17, 1}
 
-
-
-\def\CardWidth{4cm}
-\def\CardHeight{5cm}
+\def\CardWidth{115pt}
+\def\CardHeight{180pt}
 \def\CardPad{.15cm}
 \def\CardEffectiveWidth{\CardWidth-2*\CardPad}
+
+\def\shadowbox[#1]#2at#3(#4)#5{
+\foreach \angle in {0,5,...,359}{
+    \node[#1,text=\getCol] at ([shift={(\angle:.82pt)}] #4){#5};
+}
+\node[#1,text=white] at (#4) {#5};
+}
 
 % Typeset Card number #1
 \def\TypesetCard#1{%
 \def\cardi{#1}\begin{preview}
 \begin{tikzpicture}
-\fill[\getCol] (0,0) node[below right=\CardPad,text width=\CardEffectiveWidth,inner sep=0pt,text=white]%
-    (name-tag) {\Large\textbf{#1}\strut\hfill\get{tag}} rectangle ++(\CardWidth,-\CardHeight)
-    node[above left=\CardPad, text width=\CardEffectiveWidth,inner sep=0pt,align=left,text=white] (level-tag) {\scriptsize\get{type}\hfill Level: \get{level}};
-\node[below=\CardPad,text=white,text width=\CardEffectiveWidth,inner sep=0pt,align=center] at(name-tag.south) {\get{translation}};
-\node[above=2*\CardPad,text=white,text width=\CardEffectiveWidth,inner sep=0pt,align=center] at(level-tag.north) {\get{spec}};
+\node[inner sep=\z@,outer sep=\z@] at(\CardWidth/2,-\CardHeight/2) {
+    \includegraphics[width=\CardWidth,height=\CardHeight,keepaspectratio]{images/Spellcards - \get{type}.png}
+};
+\shadowbox[text width=.77*\CardEffectiveWidth,inner sep=\z@,align=center,text=white,minimum height=2.22\baselineskip,font=\LobsterTwo\Large] at (.5*\CardWidth,-.35*\CardHeight) {\get{tag}};
+\shadowbox[text width=.82*\CardEffectiveWidth,inner sep=\z@,align=center,text=white,minimum height=4.5\baselineskip,font=\Fontauri\small] at (.5*\CardWidth,-.7*\CardHeight) {\get{spec}};
+\begin{pgfinterruptboundingbox}
+    \node[below left,xshift=1pt,text=white] at(\CardWidth,0) {\tiny\textbf{#1}};
+    \node[below right,xshift=-1pt,text=white] at(0,0) {\tiny\get{type}};
+\end{pgfinterruptboundingbox}
+\begin{pgfonlayer}{background}
+    %\protected@edef\spec{\get{spec}}%
+    % \ifdefempty{\spec}{}{\fill[fill opacity=.33] (spec.north-|0,0) rectangle (spec.south-|\CardWidth,0);}
+\end{pgfonlayer}
+% \node[below right=\CardPad,text width=\CardEffectiveWidth,inner sep=0pt,text=white]%
+% (name-tag) at (0,0) {\Large\textbf{#1}\strut\hfill\get{tag}};
+% \node[above left=\CardPad, text width=\CardEffectiveWidth,inner sep=0pt,align=left,text=white] (level-tag) at (\CardWidth,-\CardHeight) {\scriptsize\get{type}\hfill Level: \get{level}};
+
+% \node[below=\CardPad,text=white,text width=\CardEffectiveWidth,inner sep=0pt,align=center] at(name-tag.south) {\get{translation}};
+% \node[above=2*\CardPad,text=white,text width=\CardEffectiveWidth,inner sep=0pt,align=center] at(level-tag.north) {\get{spec}};
 \end{tikzpicture}%
 % [#1] \get{tag}|\get{translation}|\get{spec}|\get{level}|\get{type}
 \end{preview}%
