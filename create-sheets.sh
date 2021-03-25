@@ -9,8 +9,8 @@ convert -dither FloydSteinberg -density 550 "${PDFFILE}" temp%d.png > /dev/null
 
 STEPSIZE=70
 START=0
-WIDTH=434
-HEIGHT=675
+WIDTH=500
+HEIGHT=776
 for (( I=$STEPSIZE; I<=$lastpage+$STEPSIZE-1; I+=$STEPSIZE )) do
     END=$(($I>$lastpage ? $lastpage : $I-1))
     echo $START--$END

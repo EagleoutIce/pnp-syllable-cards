@@ -10,8 +10,7 @@
 \usepackage{aurical,LobsterTwo}
 \usetikzlibrary{backgrounds}
 
-\hyphenpenalty=600
-
+\hyphenpenalty=450
 \PreviewBorder=0pt
 
 \let\say\enquote
@@ -62,38 +61,21 @@
 \def\CardPad{.15cm}
 \def\CardEffectiveWidth{\CardWidth-2*\CardPad}
 
-\def\shadowbox[#1]#2at#3(#4)#5{
-\foreach \angle in {0,5,...,359}{
-    \node[#1,text=\getCol] at ([shift={(\angle:.82pt)}] #4){#5};
-}
-\node[#1,text=white] at (#4) {#5};
-}
+\def\shadowbox[#1]#2at#3(#4)#5{\foreach \angle in {0,6,...,359}{\node[#1,text=\getCol] at ([shift={(\angle:.82pt)}] #4){#5};}\node[#1,text=white] at (#4) {#5};}
 
 % Typeset Card number #1
 \def\TypesetCard#1{%
 \def\cardi{#1}\begin{preview}
 \begin{tikzpicture}
 \node[inner sep=\z@,outer sep=\z@] at(\CardWidth/2,-\CardHeight/2) {
-    \includegraphics[width=\CardWidth,height=\CardHeight,keepaspectratio]{images/Spellcards - \get{type}.png}
-};
+\includegraphics[width=\CardWidth,height=\CardHeight,keepaspectratio]{images/Spellcards - \get{type}.png}};
 \shadowbox[text width=.77*\CardEffectiveWidth,inner sep=\z@,align=center,text=white,minimum height=2.22\baselineskip,font=\LobsterTwo\Large] at (.5*\CardWidth,-.35*\CardHeight) {\get{tag}};
-\shadowbox[text width=.82*\CardEffectiveWidth,inner sep=\z@,align=center,text=white,minimum height=4.5\baselineskip,font=\Fontauri\small] at (.5*\CardWidth,-.7*\CardHeight) {\get{spec}};
+\shadowbox[text width=.85*\CardEffectiveWidth,inner sep=\z@,align=center,text=white,minimum height=4.5\baselineskip,font=\Fontauri\small] at (.5*\CardWidth,-.7*\CardHeight) {\get{spec}};
 \begin{pgfinterruptboundingbox}
-    \node[below left,xshift=1pt,text=white] at(\CardWidth,0) {\tiny\textbf{#1}};
-    \node[below right,xshift=-1pt,text=white] at(0,0) {\tiny\get{type}};
+    \node[below left,xshift=1pt,text=white,scale=.9] at(\CardWidth,0) {\tiny\textbf{#1}};
+    \node[below right,xshift=-1pt,text=white,scale=.9] at(0,0) {\tiny\get{type}};
 \end{pgfinterruptboundingbox}
-\begin{pgfonlayer}{background}
-    %\protected@edef\spec{\get{spec}}%
-    % \ifdefempty{\spec}{}{\fill[fill opacity=.33] (spec.north-|0,0) rectangle (spec.south-|\CardWidth,0);}
-\end{pgfonlayer}
-% \node[below right=\CardPad,text width=\CardEffectiveWidth,inner sep=0pt,text=white]%
-% (name-tag) at (0,0) {\Large\textbf{#1}\strut\hfill\get{tag}};
-% \node[above left=\CardPad, text width=\CardEffectiveWidth,inner sep=0pt,align=left,text=white] (level-tag) at (\CardWidth,-\CardHeight) {\scriptsize\get{type}\hfill Level: \get{level}};
-
-% \node[below=\CardPad,text=white,text width=\CardEffectiveWidth,inner sep=0pt,align=center] at(name-tag.south) {\get{translation}};
-% \node[above=2*\CardPad,text=white,text width=\CardEffectiveWidth,inner sep=0pt,align=center] at(level-tag.north) {\get{spec}};
 \end{tikzpicture}%
-% [#1] \get{tag}|\get{translation}|\get{spec}|\get{level}|\get{type}
 \end{preview}%
 }
 
