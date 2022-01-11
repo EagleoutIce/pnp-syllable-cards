@@ -1,4 +1,4 @@
-name: compile sheets
+name: annotate sheets
 'on':
   push:
     branches: [master, main]
@@ -24,13 +24,13 @@ jobs:
         sudo cp custom-policy.xml /etc/ImageMagick-6/policy.xml
     - name: Compile the Documents
       run: |
-        make ARGS='compile --root --profile "tx-full"'
+        make annotate ARGS='compile --root --profile "tx-full"'
     - name: Commit
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add -f "cards-*-*.png"
-        git commit -m "The card sheets"
+        git add -f "Output-Deck.json"
+        git commit -m "The annotation"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
