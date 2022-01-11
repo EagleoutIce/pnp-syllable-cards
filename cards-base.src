@@ -1,0 +1,101 @@
+Aussprache,Übersetzung,Spezifikation,Stufe,Art
+Surau,Umschließen,,2,Nutz
+Slo,Verzögern x,Verzögert Auslösen des Zauberspruchs,1,Nutz
+Log,Verschließen (Magie),"Verzögert das Auslösen des Zaubers, bis aktiviert mit Passwort",2,Nutz
+Rang,Sprühnebel (Form),,2,Nutz
+Luk,Aussehen,,3,Nutz
+Du,Geometrie(Form),"Geometrischer Körper, Handflächengröße",1,Nutz
+Pro,Barriere (Form),2x2x1 Meter Feld,2,Nutz
+Tror,Treppe (Form),Eine Schräge mit Stufen nach oben (1m),2,Nutz
+Pus,Stoß,Bis Aufprall,1,Nutz
+Se,Berührung,,1,Nutz
+Vhen,Anwender,,2,Nutz
+Ye,Dauer,30 Sekunden,1,Nutz
+Kwa,Dauer,1 Minute,2,Nutz
+Runalis,Dauer,5 Minuten,3,Nutz
+Karmogrobis,Dauer,15 Minuten,4,Nutz
+Ta,Vertikal,Von Ziel,1,Nutz
+Rget,Horizontal,Von Ziel,1,Nutz
+Run,Orbit,Um Ziel (Größe variiert),1,Nutz
+We,Entfernung, 2 Meter,1,Nutz
+Gwe,Entfernung,5 Meter,2,Nutz
+Itweg,Entfernung,20 Meter,3,Nutz
+Wegwet,Entfernung,100 Meter,4,Nutz
+A,Umkreis,2 Meter,2,Nutz
+O,Umkreis,5 Meter,3,Nutz
+Eh,Umkreis,10 Meter,4,Nutz
+Im,Verbessern,Verdreifacht den Effekt und die Stufe der vorherigen Silbe,x3,Nutz
+Provim,Verbessern,Vervierfacht den Effekt und die Stufe der vorherigen Silbe,x4,Nutz
+Bai,Körperteil,,3,Beschaffenheit
+Hjart,Herz,,2,Beschaffenheit
+Har,Schmerz,,2,Beschaffenheit
+Skan,Narbe,,1,Beschaffenheit
+Lit,Licht,,1,Beschaffenheit
+Alt,Feuer,,2,Beschaffenheit
+Jeg,Wasser,,2,Beschaffenheit
+Vil,Schutz,,2,Beschaffenheit
+Thore,Elektrizität,,2,Beschaffenheit
+Mun,Wind,,2,Beschaffenheit
+Fram,Klebend,,1,Beschaffenheit
+Tid,Glätten,,1,Beschaffenheit
+Er,Aufrauen,,1,Beschaffenheit
+Död,Gummartig,,2,Beschaffenheit
+Boin,Federnd,,2,Beschaffenheit
+Spi,Stacheln,,3,Beschaffenheit
+Klai,Ton,,1,Beschaffenheit
+Dört,Erde,,1,Beschaffenheit
+Harnd,Metall,,3,Beschaffenheit
+Rog,Stein,,3,Beschaffenheit
+Rätsch,Wut,,2,Beschaffenheit
+Gare,Geist,,1,Beschaffenheit
+Hvois,Stimme,,2,Beschaffenheit
+Mov,Bewegen,,1,Aktion
+Stah,Bewegung blockieren,,2,Aktion
+Ovre,Öffnen (Magie),Aktiviert ein Passwort,2,Aktion
+Gruv,Wachse (Pflanze),,1,Aktion
+Blöm,Blühe,,1,Aktion
+Önsk,Betäuben,Entfernt Gefühl,1,Aktion
+Poes,Zusammenfügen,,1,Aktion
+Nü,Wunde schließen,Wunde vernarbt,2,Aktion
+Wen,Wunde schließen,Makellos,2,Aktion
+Man,Verkleinern,10 Prozent nur leblos,2,Aktion
+Narman,Verkleinern,10 Prozent,1,Aktion
+Vrist,Verkleinern,10 Prozent nur leblos,2,Aktion
+Vervrist,Verkleinern,10 Prozent,1,Aktion
+Kall,Rufe,Ziel zu Ziel 2,2,Aktion
+Krit,Manifestiere Kleintier,,3,Aktion
+Huskrit,Manifestiere Pflanze,,2,Aktion
+Mankrit,Manifestiere mittelgroßes Tier,,4,Aktion
+Varm,Wärmen,5 Grad,1,Aktion
+Kald,Kühlen,5 Grad,2,Aktion
+Bels,Gefrieren,,2,Aktion
+Nok,Wetter deuten,,1,Aktion
+Schme,Schmelzen,,4,Aktion
+Ragne,Beben,,2,Aktion
+Mitten,Verderbe,,1,Aktion
+Tant,Aufblähen,,2,Aktion
+Trun,Verwandle,Unbelebt in Unbelebt,1,Aktion
+Eltrun,Verwandle,Belebt in Belebt,2,Aktion
+Wartrun,Verwandle,Unbelebt in Belebt,3,Aktion
+Metrun,Verwandle,Belebt in Unbelebt,4,Aktion
+Spet,Beschleunige,,2,Aktion
+Sluh,Verlangsame,,2,Aktion
+Ga,Geist übertragen,Ein Körperteil,2,Aktion
+Ba,Schnitt,Auf Unbelebt,1,Aktion
+Rje,Schnitt,Auf Belebt,3,Aktion
+Levt,Beleben,"Unbelebtes Objekt, Zeit x5",3,Aktion
+Zerle,Demontiere,Kleines Gerät,2,Aktion
+Finx,Repariere,,3,Aktion
+Harsch,Beherrsche,"Bei unbelebt Zeit x5, bei belebt normal",4,Aktion
+Scho,Abbilden,Kleines Objekt     unter 1x1x1m,1,Aktion
+Harscho,Abbilden,Mittleres Objekt unter 3x3x3m,2,Aktion
+Harschoje,Abbilden,Mittleres Objekt unter 5x5x5m,3,Aktion
+Harschojadei,Abbilden,Gigantisches Objekt unter 15x15x15m,4,Aktion
+Khven,Beruhigen,,2,Aktion
+Skrim,Laut (Ton),,1,Aktion
+Bürte,Verwirren,,2,Aktion
+Veck,Verstecken (Ziel),,2,Aktion
+Dito,Imitieren,,2,Aktion
+Lei,Verführen,,4,Aktion
+Hvit,Beschütze,Du kannst einen Reroll pro gelungene „Beschütze“ Silbe für andere Silben verwenden,1,Spezial
+Kur,Kontrolle,Ein Fehlschlag kann von einer Silbe auf eine andere übertragen werden,1,Spezial
