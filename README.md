@@ -1,6 +1,7 @@
 # PNP-Silben Karten
 
-[![compile sheets](https://github.com/EagleoutIce/pnp-syllable-cards/actions/workflows/compile.yaml/badge.svg)](https://github.com/EagleoutIce/pnp-syllable-cards/actions/workflows/compile.yaml)
+[![annotate sheets](https://github.com/EagleoutIce/pnp-syllable-cards/actions/workflows/compile.yaml/badge.svg)](https://github.com/EagleoutIce/pnp-syllable-cards/actions/workflows/compile.yaml)
+
 Von der PDF zum Table-Top-Simulator-Kartendeck.
 
 1. Hochladen und Überschreiben der `Spells.xlsx` (Drag-n-Drop)
