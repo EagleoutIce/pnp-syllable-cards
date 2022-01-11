@@ -1,6 +1,6 @@
 XLS_FILE := $(shell ls *.xlsx)
 CSV := cards.src
-EXTRA_ARGS :=
+EXTRA_ARGS := raw-compile
 
 .PHONY: assemble convert compile annotate
 
@@ -8,7 +8,7 @@ assemble: compile
 	bash create-sheets.sh
 
 compile: convert
-	sltx -q ${EXTRA_ARGS} raw-compile card-builder
+	sltx -q ${ARGS} card-builder
 convert:
 	xlsx2csv $(XLS_FILE) > cards-base.src
 	cp cards-base.src $(CSV)
