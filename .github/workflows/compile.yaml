@@ -19,9 +19,9 @@ jobs:
     - name: Setup and run sltx-install + xlsx2csv
       run: |
         pip install sltx
-        sudo cp custom-policy.xml /etc/ImageMagick-7/policy.xml
         echo "tx-full" | sltx docker
-        sudo apt install xlsx2csv poppler-utils imagemagick-7-common
+        sudo apt install xlsx2csv poppler-utils imagemagick-6-common ghostscript-x
+        sudo cp custom-policy.xml /etc/ImageMagick-6/policy.xml
     - name: Compile the Documents
       run: |
         make ARGS='compile --root --profile "tx-full"'
