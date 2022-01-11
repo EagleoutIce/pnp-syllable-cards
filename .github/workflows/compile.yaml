@@ -24,7 +24,7 @@ jobs:
         sudo apt install xlsx2csv poppler-utils imagemagick-6-common
     - name: Compile the Documents
       run: |
-        make ARGS='compile --root'
+        make ARGS='compile --root --profile "tx-full"'
     - name: Commit
       run: |
         git config --local user.email "action@github.com"
