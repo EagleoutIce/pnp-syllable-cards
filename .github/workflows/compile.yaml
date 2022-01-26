@@ -29,8 +29,8 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add -f "Output-Deck.json"
-        git commit -m "The annotation"
+        git add -f "cards-*-*.png" "Output-Deck.json"
+        git commit -m "The annotation and the cards"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
